@@ -1,0 +1,26 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.App {
+	width: fit-content;
+}
+
+table.calendar-month tbody tr > *:hover span {
+  border-color: #d0d0d0;
+  box-shadow: 0 1px 0 0 #efefef;
+  -webkit-box-shadow: 0 1px 0 0 #efefef;
+}
+
+.mySpan {
+	cursor: 'pointer', 
+}
+
+.mySpan:hover {
+	background-color: '#0F0' 
+}
