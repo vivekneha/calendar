@@ -5,6 +5,7 @@ const liStyle = {float: "left", display: "inline-block", width: "13.6%", textAli
 
 const Calendar = ( props ) => {
 	const { onDayClick, daysInMonth, selectedDay } = props;
+	console.log("daysInMonth", daysInMonth)
 
 	const createSpan = ( text, current = false ) => (
 		<span 
@@ -20,17 +21,17 @@ const Calendar = ( props ) => {
 		</span>
 	);
 
-	const weekDays = () => moment.weekdaysShort().map(day => <l1 style={ liStyle } key={day}>{day}</l1>);
+	const weekDays = () => moment.weekdaysShort().map(day => <li style={ liStyle } key={day}>{day}</li>);
 
 	const createDays = (  ) => {
 		let clone = moment(selectedDay, "DD-MM-YYYY");
 		//console.log("createDays ", clone.format("DD-MM-YYYY"), "Day ", clone.startOf('month').day())
 		let myDate = moment(clone, "DD-MM-YYYY");
-		let rows = Array(myDate.startOf('month').day()).fill(0).map( (_, day) => <l1  name={day+1} style={ liStyle } key={day+1}>{createSpan( "" ) }</l1>);
+		let rows = Array(myDate.startOf('month').day()).fill(0).map( (_, day) => <li  name={day+1} style={ liStyle } key={day+1}>{createSpan( "" ) }</li>);
 
 
-		for(let i = 1; i < daysInMonth; i++) {
-			rows.push(<l1  name={i} style={ liStyle } key={i*10}>{createSpan( i, i === clone.date() ) }</l1>)
+		for(let i = 1; i <= daysInMonth; i++) {
+			rows.push(<li  name={i} style={ liStyle } key={i*10}>{createSpan( i, i === clone.date() ) }</li>)
 		}
 		return rows;
 	}

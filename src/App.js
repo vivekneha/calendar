@@ -9,7 +9,7 @@ import MonthNav from './components/month-nav';
 
 import moment from 'moment';
 
-const years = Array(2101).fill().map((_, idx) => idx);
+// const years = Array(2101).fill().map((_, idx) => idx);
 
 const App = () => {
 	const [ month, setMonth ] = useState( moment().month());
@@ -32,32 +32,12 @@ const App = () => {
 		setNote( selectedNote ? selectedNote : "" )
 	}
 
-
-	// <select name="year" value={year} 
-	// 				onChange={ e => {
-	// 					setYear( e.target.value );
-	// 					let date = moment().set({'year': e.target.value, 'month': month, 'date': 1 });
-	// 					updateDateAndNote( date );
-	// 				}}>
-	// 				{ years.map( year => <option key={year} value={ year }> { year } </option>) }
-	// 			</select>
-
-	// <select name="month" 
-	// 				onChange={ e => {
-	// 					setMonth( e.target.selectedIndex );
-	// 					let date = moment().set({'year': year, 'month': e.target.selectedIndex, 'date': 1});
-	// 					updateDateAndNote( date );						
-	// 				}}>
-	// 				{ moment.months().map( month => <option key={month} value={month} > { month } </option>) }
-	// 			</select>	
-	
 	return (
 		<div>
 			<div style={{width:"99%"}}>
 				<Note 
 					note={text}
 					onNoteInputChange={ data => {
-						console.log(" selectedDay ", selectedDay)
 						add(selectedDay, data);
 						setNote( data )
 					}}
